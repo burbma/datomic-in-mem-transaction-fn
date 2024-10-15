@@ -5,7 +5,7 @@
 (d/create-database uri)
 (def conn (d/connect uri))
 
-(defn must-be-hello [db tx-id]
+(defn must-be-world [db tx-id]
   (->> (d/pull db [:hello/msg] tx-id)
        :hello/msg
        (#(= "world" %))))
@@ -20,7 +20,7 @@
     :db/cardinality :db.cardinality/one}
    {:db/ident :hello/validate
     :db.entity/attrs [:hello/id :hello/msg]
-    :db.entity/preds 'dev/must-be-hello}])
+    :db.entity/preds 'dev/must-be-world}])
 
 @(d/transact conn hello-schema)
 
