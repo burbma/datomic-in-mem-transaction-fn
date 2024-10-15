@@ -1,0 +1,7 @@
+{:paths []
+ :deps {org.clojure/clojure {:mvn/version "1.11.3"}
+        com.datomic/peer {:mvn/version "1.0.7187"}}
+
+ :aliases {:dev {:extra-paths ["dev"]
+                 :extra-deps {cider/cider-nrepl {:mvn/version "0.48.0"}}
+                 :main-opts ["-m" "nrepl.cmdline" "--middleware" "[cider.nrepl/cider-middleware]"]} }}
